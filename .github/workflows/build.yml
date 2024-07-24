@@ -14,6 +14,14 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
 
+    - name: Download TMaze
+      run: |
+        wget https://github.com/ur-fault/TMaze/releases/download/1.15.2/tmaze_linux-x86_64_1.15.2
+
+    - name: Move TMaze into filesystem
+      run: |
+        mv tmaze_linux-x86_64_1.15.2 ./archlive/airootfs/opt/customscript/tmaze
+
     - name: Update packages
       run: |
         pacman -Sy --noconfirm
