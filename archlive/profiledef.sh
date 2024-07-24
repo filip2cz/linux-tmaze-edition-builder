@@ -2,12 +2,12 @@
 # shellcheck disable=SC2034
 
 # Put name of your iso here
-iso_name="name-of-your-iso"
+iso_name="linux-tmaze-edition"
 iso_label="ARCH_$(date --date="@${SOURCE_DATE_EPOCH:-$(date +%s)}" +%Y%m)"
 # Put your name (and optionaly your website) here
-iso_publisher="Your Name <https://example.com>"
+iso_publisher="Filip Komárek <https://github.com/filip2cz/linux-tmaze-edition-builder>"
 # Put description of your iso here
-iso_application="This is description of this iso"
+iso_application="Linux ISO image to run TMaze"
 # Version of your iso: when you release second version of your iso, you will propably want to change it to v1.1 or v2.0 or whatever you want
 iso_version="v1.0"
 install_dir="arch"
