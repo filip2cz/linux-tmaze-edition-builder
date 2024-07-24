@@ -1,4 +1,4 @@
 #!/bin/bash
 
-chmod 777 tmaze
-./tmaze
+chmod 777 /opt/customscript/tmaze
+/opt/customscript/tmaze
