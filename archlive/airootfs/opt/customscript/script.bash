@@ -1,3 +1,5 @@
 #!/bin/bash
 
-echo "Put your custom script or binary here"
+chmod 777 tmaze
+./tmaze
+poweroff
