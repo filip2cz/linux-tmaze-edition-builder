@@ -1,0 +1,65 @@
+name: Build
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: archlinux:latest
+      options: --privileged
+    steps:
+
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Update packages
+      run: |
+        pacman -Sy --noconfirm
+
+    - name: Install archiso
+      run: |
+        pacman -S --noconfirm archiso
+
+    - name: Create output dir
+      run: |
+        mkdir iso
+
+    - name: Create working directory
+      run: |
+        mkdir working
+
+    - name: Reinstall device-mapper package
+      run: |
+        pacman -S --noconfirm device-mapper
+
+    - name: Build the ISO
+      run: |
+        mkarchiso -v -w ./working -o ./iso ./archlive/
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: iso
+        path: ./iso/*.iso
+
+  publish:
+    runs-on: ubuntu-latest
+    permissions: write-all
+    needs: build
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: iso
+          path: ./
+
+      - name: Create new release and upload iso
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release create --draft REPLACEME *.iso

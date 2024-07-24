@@ -1,0 +1,11 @@
+NAME="Name of your iso here"
+PRETTY_NAME="Pretty name of your iso here"
+ID=arch
+BUILD_ID=rolling
+ANSI_COLOR="38;2;23;147;209"
+HOME_URL="https://github.com/filip2cz/archlinux-custom-iso-script"
+DOCUMENTATION_URL="https://github.com/filip2cz/archlinux-custom-iso-script/wiki"
+SUPPORT_URL="https://github.com/filip2cz/archlinux-custom-iso-script/issues"
+BUG_REPORT_URL="https://github.com/filip2cz/archlinux-custom-iso-script/issues"
+PRIVACY_POLICY_URL="none"
+LOGO=archlinux-logo
