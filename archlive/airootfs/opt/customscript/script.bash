@@ -2,4 +2,3 @@
 
 chmod 777 tmaze
 ./tmaze
-poweroff
