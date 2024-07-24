@@ -9,7 +9,7 @@ iso_publisher="Filip Komárek <https://github.com/filip2cz/linux-tmaze-edition-b
 # Put description of your iso here
 iso_application="Linux ISO image to run TMaze"
 # Version of your iso: when you release second version of your iso, you will propably want to change it to v1.1 or v2.0 or whatever you want
-iso_version="v1.0"
+iso_version="1.15.2"
 install_dir="arch"
 buildmodes=('iso')
 bootmodes=('bios.syslinux.mbr' 'bios.syslinux.eltorito'
