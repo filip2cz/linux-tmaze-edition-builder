@@ -24,11 +24,13 @@ jobs:
 
     - name: Download TMaze
       run: |
-        wget https://github.com/ur-fault/TMaze/releases/download/1.15.2/tmaze_linux-x86_64_1.15.2
+        ver=$(cat tmaze.txt)
+        wget https://github.com/ur-fault/TMaze/releases/download/$ver/tmaze_linux-x86_64_$ver
 
     - name: Move TMaze into filesystem
       run: |
-        mv tmaze_linux-x86_64_1.15.2 ./archlive/airootfs/opt/customscript/tmaze
+        ver=$(cat tmaze.txt)
+        mv tmaze_linux-x86_64_$ver ./archlive/airootfs/opt/customscript/tmaze
 
     - name: Install archiso
       run: |
@@ -74,4 +76,5 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh release create --draft REPLACEME *.iso
+          ver=$(cat tmaze.txt)
+          gh release create $ver *.iso --title "New TMaze - $ver"

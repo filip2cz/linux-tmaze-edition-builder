@@ -1,0 +1,20 @@
+name: TMaze version checker
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+jobs:
+  run_at_12_am_hours:
+    env:
+      GH_TOKEN: ${{ github.token }}
+    name: Check latest version of TMaze
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Check new version and push
+        run: |
+          bash updatecheck.bash
