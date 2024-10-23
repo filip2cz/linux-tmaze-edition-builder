@@ -6,7 +6,6 @@ if [ "$latest_tag" != "$saved_version" ]; then
     git config --global user.name "github-actions"
     git config --global user.email "you@example.com"
     echo "$latest_tag" > tmaze.txt
-    sed -i "s/^iso_version=\"[^\"]*\"/iso_version=\"$latest_tag\"/" ./archlive/profiledef.sh
     echo "New version $latest_tag found"
     git add tmaze.txt
     git commit -m "new version of TMaze: $latest_tag"
