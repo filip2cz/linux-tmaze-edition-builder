@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 # shellcheck disable=SC2034
 
+echo "---------------"
+pwd
+echo "---------------"
+
 # Put name of your iso here
 iso_name="linux-tmaze-edition"
 iso_label="ARCH_$(date --date="@${SOURCE_DATE_EPOCH:-$(date +%s)}" +%Y%m)"
