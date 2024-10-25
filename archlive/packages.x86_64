@@ -10,3 +10,4 @@ qemu-guest-agent
 syslinux
 virtualbox-guest-utils-nox
 alsa-utils
+pipewire
